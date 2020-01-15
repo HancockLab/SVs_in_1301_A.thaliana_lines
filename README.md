@@ -23,46 +23,9 @@ make
 cp bin/* /usr/local/bin/.
 ```
 
-Installing with costom zlib (gzopen64 compile error):
-
-```
-git clone --recursive git@github.com:arq5x/lumpy-sv.git
-cd lumpy-sv
-export ZLIB_PATH="/usr/lib/x86_64-linux-gnu/"; #when /usr/lib/x86_64-linux-gnu/libz.so
-make
-cp bin/* /usr/local/bin/.
-```
 
 
-## LUMPY Express usage
-Automated breakpoint detection for standard analyses.
 
-```
-usage:   lumpyexpress [options]
-```
-
-**Required arguments**
-```
-     -B FILE  coordinate-sorted BAM file(s) (comma separated)
-     -S FILE  split reads BAM file(s) (comma separated)
-     -D FILE  discordant reads BAM files(s) (comma separated)
-
-```
-
-**Optional arguments**
-```
--o STR    output [fullBam.bam.vcf]
--x FILE   BED file to exclude
--P        output probability curves for each variant
--m INT    minimum sample weight for a call [4]
--r FLOAT  trim threshold [0]
--T DIR    temp directory [./output_prefix.XXXXXXXXXXXX]
--k        keep temporary files
--K FILE   path to lumpyexpress.config file
-            (default: same directory as lumpyexpress)
--v        verbose
--h        show this message
-```
 
 #### Configuration
 LUMPY Express runs several external program whose paths are specified in
