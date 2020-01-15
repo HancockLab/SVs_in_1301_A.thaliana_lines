@@ -47,4 +47,15 @@ lumpyexpress -B sample.bam -S sample.splitters.bam -D sample.discordants.bam -o 
     
 # Genotyping individual samples with SVTyper
 svtyper -B sample.bam -i sample.vcf -l sample.json > sample.gt.vcf
+
+# Sorting,compressing and indexing VCF files
+vcf-sort sample.gt.vcf > sample_sorted.gt.vcf
+bgzip sample_sorted.gt.vcf
+tabix sample_sorted.gt.vcf.gz
+
+#multiple
+svtools lsort sample1_sorted.gt.vcf.gz sample2_sorted.gt.vcf.sample3_sorted.gt.vcf.gz \
+| bgzip -c > sorted.vcf.gz
+
+
 ```
