@@ -26,33 +26,30 @@ cp bin/* /usr/local/bin/.
 ## Pipeline
 
 ```
-# Align the data
-bwa mem -R "@RG\tID:id\tSM:sample\tLB:lib" human_g1k_v37.fasta sample.1.fq sample.2.fq \
+# Align paired-end reads to Reference
+bwa mem -R "@RG\tID:id\tSM:sample\tLB:lib" reference.fasta sample.R1.fastq sample.R2.fastq \
     | samblaster --excludeDups --addMateTags --maxSplitCount 2 --minNonOverlap 20 \
     | samtools view -S -b - \
     > sample.bam
 
-# Extract the discordant paired-end alignments.
+# Extract the discordant paired-end alignments from BAM file
 samtools view -b -F 1294 sample.bam > sample.discordants.unsorted.bam
 
-# Extract the split-read alignments
+# Extract the split-read alignments from BAM file
 samtools view -h sample.bam \
     | scripts/extractSplitReads_BwaMem -i stdin \
     | samtools view -Sb - \
     > sample.splitters.unsorted.bam
 
-# Sort both alignments
-samtools sort sample.discordants.unsorted.bam sample.discordants
-samtools sort sample.splitters.unsorted.bam sample.splitters
+# Sort discordant and splitters bam files
+samtools sort sample.discordants.unsorted.bam -o sample.discordants
+samtools sort sample.splitters.unsorted.bam - o sample.splitters
 ```
 
-##### LUMPY Express
-- Run LUMPY Express on a single sample with pre-extracted splitters and discordants
+```
+# Run LUMPY Express on a single sample with pre-extracted splitters and discordants
     ```
-    lumpyexpress \
-        -B sample.bam \
-        -S sample.splitters.bam \
-        -D sample.discordants.bam \
+    lumpyexpress -B sample.bam -S sample.splitters.bam -D sample.discordants.bam \
         -o sample.vcf
     ```
 
