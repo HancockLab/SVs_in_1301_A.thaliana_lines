@@ -26,7 +26,7 @@ cp bin/* /usr/local/bin/.
 # Align paired-end reads to Reference
 bwa mem -R "@RG\tID:id\tSM:sample\tLB:lib" reference.fasta sample.R1.fastq sample.R2.fastq \
     | samblaster --excludeDups --addMateTags --maxSplitCount 2 --minNonOverlap 20 \
-    | samtools view -S -b - \
+    | samtools view -Sb - \
     > sample.bam
 
 # Extract the discordant paired-end alignments from BAM file
