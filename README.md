@@ -1,24 +1,29 @@
 ## Installation
 
 ##### Requirements
-- LUMPY
     * g++ compiler
     * CMake
-- LUMPY Express (optional)
+    * GNU awk and core utils
+    * BWA (http://bio-bwa.sourceforge.net/)
     * Samtools (0.1.18+) ([htslib.org/](http://www.htslib.org/))
     * SAMBLASTER (0.1.19+) ([github repo](https://github.com/GregoryFaust/samblaster))
-    * Python 2.7 ([python.org/](https://www.python.org/)) with pysam (0.8.3+) and NumPy (1.8.1+)
+    * Python 2.7 ([python.org/](https://www.python.org/)) with pysam (0.8.3+), NumPy (1.8.1+) and scipy (1.2.1+)
+    * Vawk (https://github.com/cc2qe/vawk)
     * sambamba ([gihub repo](https://github.com/lomereiter/sambamba))
     * gawk ([GNU project](https://www.gnu.org/software/gawk/))
 
-##### Install
+##### Install LumpyExpress
 ```
 git clone --recursive git@github.com:arq5x/lumpy-sv.git
 cd lumpy-sv
 make
 cp bin/* /usr/local/bin/.
 ```
+##### Install SVtyper
+pip install git+https://github.com/hall-lab/svtyper.git
+##### Install SVstools
 
+pip install svtools
 
 ## Pipeline
 
