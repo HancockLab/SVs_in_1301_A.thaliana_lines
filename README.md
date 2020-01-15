@@ -24,8 +24,9 @@ cp bin/* /usr/local/bin/.
 pip install git+https://github.com/hall-lab/svtyper.git
 ```
 ##### Install SVstools
-
+```
 pip install svtools
+```
 
 ## Pipeline
 
