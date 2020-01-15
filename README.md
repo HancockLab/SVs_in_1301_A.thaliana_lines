@@ -12,8 +12,6 @@
     * gawk ([GNU project](https://www.gnu.org/software/gawk/))
 
 ##### Install
-Default method to install:
-
 ```
 git clone --recursive git@github.com:arq5x/lumpy-sv.git
 cd lumpy-sv
