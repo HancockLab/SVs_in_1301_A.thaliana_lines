@@ -23,7 +23,7 @@ cp bin/* /usr/local/bin/.
 ```
 pip install git+https://github.com/hall-lab/svtyper.git
 ```
-##### Install SVstools
+##### Install SVtools
 ```
 pip install svtools
 ```
