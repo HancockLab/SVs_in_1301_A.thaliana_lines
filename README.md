@@ -44,11 +44,10 @@ samtools view -h sample.bam \
 # Sort discordant and splitters bam files
 samtools sort sample.discordants.unsorted.bam -o sample.discordants
 samtools sort sample.splitters.unsorted.bam - o sample.splitters
-```
 
 
 # Run LUMPY Express on a single sample with pre-extracted splitters and discordants
-    ```
+   
     lumpyexpress -B sample.bam -S sample.splitters.bam -D sample.discordants.bam \
         -o sample.vcf
     ```
