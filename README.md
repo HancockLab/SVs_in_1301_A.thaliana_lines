@@ -25,19 +25,6 @@ cp bin/* /usr/local/bin/.
 
 ## Pipeline
 
-#### Pre-processing
-We recommend aligning data with [SpeedSeq](https://github.com/cc2qe/speedseq), which
-performs BWA-MEM alignment, marks duplicates and extracts split and discordant
-read-pairs.
-```
-speedseq align -R "@RG\tID:id\tSM:sample\tLB:lib" \
-    human_g1k_v37.fasta \
-    sample.1.fq \
-    sample.2.fq
-```
-
-Otherwise, data may be aligned with BWA-MEM.
-
 ```
 # Align the data
 bwa mem -R "@RG\tID:id\tSM:sample\tLB:lib" human_g1k_v37.fasta sample.1.fq sample.2.fq \
