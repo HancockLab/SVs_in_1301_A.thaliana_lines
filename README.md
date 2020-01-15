@@ -50,7 +50,9 @@ svtyper -B sample.bam -i sample.vcf -l sample.json > sample.gt.vcf
 
 # Sorting,compressing and indexing VCF files
 vcf-sort sample.gt.vcf > sample_sorted.gt.vcf
+
 bgzip sample_sorted.gt.vcf
+
 tabix sample_sorted.gt.vcf.gz
 
 # Run SVTOOLS LSORT to combine and sort variants from multiple samples
