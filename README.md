@@ -48,14 +48,9 @@ samtools sort sample.splitters.unsorted.bam - o sample.splitters
 
 # Run LUMPY Express on a single sample with pre-extracted splitters and discordants
    
-    lumpyexpress -B sample.bam -S sample.splitters.bam -D sample.discordants.bam \
-        -o sample.vcf
+    lumpyexpress -B sample.bam -S sample.splitters.bam -D sample.discordants.bam -o sample.vcf
     ```
 
 # Genotyping Individual Samples
-svtyper \      
-    -B sample.bam \
-    -S sample.splitters.bam \
-    -i sample.vcf
-    > sample.gt.vcf
+svtyper -B sample.bam -S sample.splitters.bam -i sample.vcf > sample.gt.vcf
 ```
