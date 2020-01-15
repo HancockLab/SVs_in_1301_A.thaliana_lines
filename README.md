@@ -12,7 +12,6 @@
     * gawk ([GNU project](https://www.gnu.org/software/gawk/))
 
 ##### Install
-
 Default method to install:
 
 ```
