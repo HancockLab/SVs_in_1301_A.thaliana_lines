@@ -56,7 +56,7 @@ samtools sort sample.splitters.unsorted.bam sample.splitters
         -o sample.vcf
     ```
 
-#### Post-processing
+#### Genotyping Individual Samples
 [SVTyper](https://github.com/hall-lab/svtyper) can call genotypes on LUMPY output VCF files
 using a Bayesian maximum likelihood algorithm.
 ```
