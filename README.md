@@ -39,12 +39,12 @@ samtools view -h sample.bam \
     > sample.splitters.unsorted.bam
 
 # Sort discordant and splitters bam files
-samtools sort sample.discordants.unsorted.bam -o sample.discordants
-samtools sort sample.splitters.unsorted.bam - o sample.splitters
+samtools sort sample.discordants.unsorted.bam -o sample.discordants.bam
+samtools sort sample.splitters.unsorted.bam - o sample.splitters.bam
 
 # Run LUMPY Express on a single sample with pre-extracted splitters and discordants
 lumpyexpress -B sample.bam -S sample.splitters.bam -D sample.discordants.bam -o sample.vcf
     
 # Genotyping Individual Samples with SVTyper
-svtyper -B sample.bam -S sample.splitters.bam -i sample.vcf > sample.gt.vcf
+svtyper -B sample.bam -i sample.vcf -l sample.json > sample.gt.vcf
 ```
