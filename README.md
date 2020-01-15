@@ -54,7 +54,7 @@ samtools sort sample.splitters.unsorted.bam - o sample.splitters.bam
 lumpyexpress -P -B sample.bam -S sample.splitters.bam -D sample.discordants.bam -o sample.vcf
     
 # Genotyping individual samples with SVTyper
-svtyper -B sample.bam -i sample.vcf -l sample.json > sample.gt.vcf
+svtyper -B sample.bam -i sample.vcf -l sample.bam.json > sample.gt.vcf
 
 # Sorting,compressing and indexing VCF files
 vcf-sort sample.gt.vcf > sample_sorted.gt.vcf
@@ -72,7 +72,7 @@ zcat sorted.vcf.gz | svtools lmerge -i /dev/stdin -f 20 | bgzip -c > merged.vcf.
 
 # Run SVTOOLS GENOTYPE to genotype all samples present in the merged set
 mkdir -p gt
-zcat merged.vcf.gz | vawk --header '{  $6="."; print }' | svtools genotype -B NA12877.bam -l NA12877.bam.json \
-| sed 's/PR...=[0-9\.e,-]*\(;\)\{0,1\}\(\t\)\{0,1\}/\2/g' - > gt/NA12877.vcf
+zcat merged.vcf.gz | vawk --header '{  $6="."; print }' | svtools genotype -B sample.bam -l sample.bam.json \
+| sed 's/PR...=[0-9\.e,-]*\(;\)\{0,1\}\(\t\)\{0,1\}/\2/g' - > gt/final.vcf
 
 ```
