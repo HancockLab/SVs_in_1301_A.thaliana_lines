@@ -80,7 +80,9 @@ zcat merged.vcf.gz | vawk --header '{  $6="."; print }' | svtools genotype -B sa
 ## Main Figures 
 
 ```
-https://github.com/HancockLab/SVs_in_1301_A.thaliana_lines_Main_Figures
+<a href="https://github.com/HancockLab/SVs_in_1301_A.thaliana_lines_Main_Figures
+">Main Figures</a>
+
 
 ```
 
