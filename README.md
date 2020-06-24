@@ -76,3 +76,4 @@ zcat merged.vcf.gz | vawk --header '{  $6="."; print }' | svtools genotype -B sa
 | sed 's/PR...=[0-9\.e,-]*\(;\)\{0,1\}\(\t\)\{0,1\}/\2/g' - > gt/final.vcf
 
 ```
+
